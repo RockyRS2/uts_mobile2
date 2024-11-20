@@ -33,22 +33,22 @@ class _LoginPageState extends State<LoginPage> {
     String username = usernameController.text;
     String password = passwordController.text;
 
-    if (!username.contains('@')) {
-      Fluttertoast.showToast(
-        msg: "harus menggunakan @",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.red, 
-        textColor: Colors.white, 
-        fontSize: 16.0,
-      );
-    } else if (username.length <= 4) {
+    if (username.length <= 4) {
       Fluttertoast.showToast(
         msg: "username harus lebih dari 4 karakter",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         backgroundColor: Colors.red,
         textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    }else if (!username.contains('@')) {
+      Fluttertoast.showToast(
+        msg: "harus menggunakan @",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red, 
+        textColor: Colors.white, 
         fontSize: 16.0,
       );
     } else if (password.length <= 4) {
